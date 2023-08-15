@@ -51,9 +51,14 @@ linters.setup { { command = "flake8", args = { "--ignore=E203"}, filetypes = { "
 
 -- Plugins
 lvim.plugins = {
-  "ChristianChiarulli/swenv.nvim",
+  "AckslD/swenv.nvim",
   "stevearc/dressing.nvim",
-  "github/copilot.vim"
+  "github/copilot.vim",
+  "andweeb/presence.nvim",
+  config = function()
+    require("user.presence").config()
+  end,
+  "ThePrimeagen/vim-be-good"
 }
 
 lvim.builtin.which_key.mappings["C"] = {
