@@ -1,7 +1,15 @@
 -- Read the docs: https://www.lunarvim.org/docs/configuration
 -- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
 -- Forum: https://www.reddit.com/r/lunarvim/
+-- Read the docs: https://www.lunarvim.org/docs/configuration
+-- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
+-- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
+
+-- Use 'zig' as default compiler
+-- https://github.com/nvim-treesitter/nvim-treesitter/issues/1985
+-- run 'scoop install zig' in pwsh
+require 'nvim-treesitter.install'.compilers = { "zig" }
 
 -- Enable powershell as your default shell
 vim.opt.shell = "pwsh.exe -NoLogo"
@@ -41,7 +49,10 @@ formatters.setup {
     },
   },
   {
-    name = "black"
+    name = "black",
+    filetypes = {
+      "py"
+    }
   },
 }
 
@@ -51,6 +62,7 @@ linters.setup { { command = "flake8", args = { "--ignore=E203"}, filetypes = { "
 
 -- Plugins
 lvim.plugins = {
+  "prisma/vim-prisma",
   "AckslD/swenv.nvim",
   "stevearc/dressing.nvim",
   "github/copilot.vim",
